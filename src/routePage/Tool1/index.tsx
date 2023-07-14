@@ -1,4 +1,4 @@
-import { useState } from "preact/hooks";
+import { useState } from "react";
 import { Input, Button, message } from "antd";
 
 import styles from "./index.module.less";
@@ -59,7 +59,7 @@ export default () => {
         />
       </div>
       <div className={styles.tool1_middle}>
-        <Button onClick={handleClick}>转换 =&gt;</Button>
+        <Button type="primary" onClick={handleClick}>转换 =&gt;</Button>
       </div>
       <div className={styles.tool1_right}>
         <TextArea

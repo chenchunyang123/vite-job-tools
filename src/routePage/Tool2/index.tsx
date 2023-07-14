@@ -1,4 +1,4 @@
-import { useState } from "preact/hooks";
+import { useState } from "react";
 import { Input, Button, message } from "antd";
 
 import styles from "./index.module.less";
@@ -84,7 +84,7 @@ export default () => {
         </div>
       </div>
       <div className={styles.tool2_middle}>
-        <Button onClick={handleClick}>更新</Button>
+        <Button type="primary" onClick={handleClick}>更新</Button>
       </div>
       <div className={styles.tool2_bottom}>
         <TextArea
