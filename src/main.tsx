@@ -1,13 +1,15 @@
-import { render } from "preact";
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { HashRouter } from "react-router-dom";
 
 import App from "./app.tsx";
 import "./index.css";
 import "./reset.css";
 
-render(
-  <HashRouter>
-    <App />
-  </HashRouter>,
-  document.getElementById("app")!
+ReactDOM.createRoot(document.getElementById("app")!).render(
+  <React.StrictMode>
+    <HashRouter>
+      <App />
+    </HashRouter>
+  </React.StrictMode>
 );
