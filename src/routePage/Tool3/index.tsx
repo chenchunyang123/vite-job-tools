@@ -1,4 +1,4 @@
-import { useState } from "preact/hooks";
+import { useState } from "react";
 import { Input, Button, message } from "antd";
 
 import styles from "./index.module.less";
