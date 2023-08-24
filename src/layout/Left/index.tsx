@@ -12,6 +12,10 @@ const menuConfig = [
     url: "/tool2",
     name: "更新翻译",
   },
+  {
+    url: "/tool3",
+    name: "i18n转换为formatMessage",
+  },
 ];
 
 export default () => {
