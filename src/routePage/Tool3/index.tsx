@@ -46,7 +46,7 @@ export default () => {
         />
       </div>
       <div className={styles.tool1_middle}>
-        <Button onClick={handleClick}>转换 =&gt;</Button>
+        <Button type="primary" onClick={handleClick}>转换 =&gt;</Button>
       </div>
       <div className={styles.tool1_right}>
         <TextArea
