@@ -30,7 +30,7 @@ export default () => {
   };
 
   function format(text: ObjectAny) {
-    return text.replace(/i18n\._\(t`(.+?)`\)/g, "formatMessage({id: '$1'})");
+    return text.replace(/i18n\._\(t`([\s\S]+?)`\)/g, "formatMessage({id: '$1'})");
   }
 
   return (
