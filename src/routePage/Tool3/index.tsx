@@ -30,7 +30,10 @@ export default () => {
   };
 
   function format(text: ObjectAny) {
-    return text.replace(/i18n\._\(t`([\s\S]+?)`\)/g, "formatMessage({id: '$1'})");
+    return text.replace(
+      /i18n\._\([\s\S]*?`([\s\S]+?)`[\s\S]*?\)/g,
+      "formatMessage({id: '$1'})"
+    );
   }
 
   return (
@@ -46,7 +49,9 @@ export default () => {
         />
       </div>
       <div className={styles.tool1_middle}>
-        <Button type="primary" onClick={handleClick}>转换 =&gt;</Button>
+        <Button type="primary" onClick={handleClick}>
+          转换 =&gt;
+        </Button>
       </div>
       <div className={styles.tool1_right}>
         <TextArea
