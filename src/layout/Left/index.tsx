@@ -16,6 +16,14 @@ const menuConfig = [
     url: "/tool3",
     name: "i18n转换为formatMessage",
   },
+  {
+    url: "/tool4",
+    name: "className的css module转为普通类",
+  },
+  {
+    url: "/tool5",
+    name: "className普通类转为css module",
+  },
 ];
 
 export default () => {
