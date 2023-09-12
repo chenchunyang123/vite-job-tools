@@ -40,7 +40,7 @@ export default () => {
         );
         return match;
       }
-      return `className="$2"`;
+      return `className="${$2}"`;
     });
   }
 
