@@ -30,18 +30,21 @@ export default () => {
   };
 
   function format(text: ObjectAny) {
-    return text.replace(/className=\{([^\.]+)\.([^}]+)\}/g, (match, $1, $2) => {
-      // 如果有类似classnames函数处理的方法，就会有括号
-      if (match.includes("(")) {
-        // 不处理
-        message.warning(
-          "文件中有classnames库处理的方法，用库生成className的地方请手动处理",
-          10
-        );
-        return match;
+    return text.replace(
+      /className=\{([^\.]+)\.([^}]+)\}/g,
+      (match: string, $1, $2: string) => {
+        // 如果有类似classnames函数处理的方法，就会有括号
+        if (match.includes("(")) {
+          // 不处理
+          message.warning(
+            "文件中有classnames库处理的方法，用库生成className的地方请手动处理",
+            10
+          );
+          return match;
+        }
+        return `className="${$2}"`;
       }
-      return `className="${$2}"`;
-    });
+    );
   }
 
   return (
