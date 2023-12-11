@@ -33,7 +33,7 @@ export default () => {
   function format(text: string) {
     if (text?.includes("className={")) {
       message.warning(
-        "文件中有classnames库处理的方法，用库生成className的地方请手动处理"
+        "文件中针对样式名有函数方法，可以搜索className={，并请手动处理"
       );
     }
     return text.replace(/className="([^"]*)"/g, function (match, p1) {
