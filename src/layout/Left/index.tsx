@@ -24,6 +24,10 @@ const menuConfig = [
     url: "/tool5",
     name: "className普通类转为css module",
   },
+  {
+    url: "/tool6",
+    name: "样式文件类名统一驼峰式",
+  },
 ];
 
 export default () => {

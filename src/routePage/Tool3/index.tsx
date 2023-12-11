@@ -37,8 +37,8 @@ export default () => {
   }
 
   return (
-    <div className={styles.tool1}>
-      <div className={styles.tool1_left}>
+    <div className={styles.tool}>
+      <div className={styles.tool_left}>
         <TextArea
           placeholder="请输入需要替换的文本"
           value={leftText}
@@ -48,12 +48,12 @@ export default () => {
           {...commonConfig}
         />
       </div>
-      <div className={styles.tool1_middle}>
+      <div className={styles.tool_middle}>
         <Button type="primary" onClick={handleClick}>
           转换 =&gt;
         </Button>
       </div>
-      <div className={styles.tool1_right}>
+      <div className={styles.tool_right}>
         <TextArea
           placeholder="这里是结果"
           value={rightText}
