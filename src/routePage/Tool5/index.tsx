@@ -31,17 +31,12 @@ export default () => {
   };
 
   function format(text: string) {
+    if (text?.includes("className={")) {
+      message.warning(
+        "文件中有classnames库处理的方法，用库生成className的地方请手动处理"
+      );
+    }
     return text.replace(/className="([^"]*)"/g, function (match, p1) {
-      // 如果有类似classnames函数处理的方法，就会有括号
-      if (match.includes("(")) {
-        // 不处理
-        message.warning(
-          "文件中有classnames库处理的方法，用库生成className的地方请手动处理",
-          10
-        );
-        return match;
-      }
-
       // 将带横杠的类名分割为各部分
       const parts = p1.split("-");
 
