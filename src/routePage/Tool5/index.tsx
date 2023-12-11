@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Input, Button, message } from "antd";
+import _ from "lodash";
 
 import styles from "./index.module.less";
 
@@ -29,8 +30,35 @@ export default () => {
     }
   };
 
-  function format(text: ObjectAny) {
-    return text.replace(/className="([^"]+)"/g, "className={styles.$1}");
+  function format(text: string) {
+    return text.replace(/className="([^"]*)"/g, function (match, p1) {
+      // 如果有类似classnames函数处理的方法，就会有括号
+      if (match.includes("(")) {
+        // 不处理
+        message.warning(
+          "文件中有classnames库处理的方法，用库生成className的地方请手动处理",
+          10
+        );
+        return match;
+      }
+
+      // 将带横杠的类名分割为各部分
+      const parts = p1.split("-");
+
+      // 将各部分转换为驼峰式
+      const camelCaseParts = parts.map((part: string, index: number) => {
+        if (index !== 0) {
+          return _.upperFirst(part);
+        }
+        return part;
+      });
+
+      // 重新组合各部分为一个驼峰式类名
+      const camelCaseClass = camelCaseParts.join("");
+
+      // 将原先的类名替换为驼峰式类名
+      return `className={styles.${camelCaseClass}}`;
+    });
   }
 
   return (
